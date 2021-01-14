@@ -1,0 +1,14 @@
+@import '../utilities/mixins';
+@import '../utilities/variables';
+
+h1,
+h2,
+p {
+  font-family: 'Dosis', sans-serif;
+  color: $primary-font-color;
+}
+
+h1 {
+  text-transform: capitalize;
+  font-size: 24px;
+}

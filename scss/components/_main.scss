@@ -1,0 +1,28 @@
+@import '../utilities/mixins';
+@import '../utilities/variables';
+@import '../utilities/keyframes';
+
+.card {
+  display: flex;
+  align-items: center;
+  background: $white;
+  border: 1px solid $border-color;
+  border-radius: 3px;
+  padding: 15px;
+  p {
+    font-size: 12px;
+    color: $secondary-font-color;
+  }
+  h2 {
+    font-size: 20px;
+  }
+}
+
+.profile-pic {
+  border-radius: 50%;
+  height: 80px;
+}
+
+.card-text {
+  padding-left: 15px;
+}

@@ -1,0 +1,11 @@
+@import '../utilities/mixins';
+@import '../utilities/variables';
+
+h1,
+h2,
+p,
+div,
+html {
+  padding: 0;
+  margin: 0;
+}

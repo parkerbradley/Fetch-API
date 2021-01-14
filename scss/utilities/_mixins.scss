@@ -1,0 +1,23 @@
+@import 'variables';
+
+@mixin flex-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+@mixin flex-around {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+@mixin phone {
+  @media (max-width: 320px) { @content; }
+}
+@mixin tablet {
+  @media (min-width: 768px) { @content; }
+}
+@mixin desktop {
+  @media (min-width: 1024px) { @content; }
+}

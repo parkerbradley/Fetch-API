@@ -1,0 +1,9 @@
+@import '../utilities/variables';
+@import '../utilities/mixins';
+@import '../utilities/keyframes';
+
+.cards-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+  grid-gap: $body-space;
+}

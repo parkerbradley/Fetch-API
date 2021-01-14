@@ -1,0 +1,17 @@
+@import '../utilities/mixins';
+@import '../utilities/variables';
+@import '../utilities/keyframes';
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: $background-color;
+  max-width: 1024px;
+  margin: auto;
+}
+
+.container {
+  margin: $body-space;
+}
