@@ -1,3 +1,4 @@
+const overlay = document.querySelector('.overlay');
 const cardsContainer = document.querySelector('.cards-container');
 const randomURL = 'https://randomuser.me/api/?results=12';
 const cards = document.getElementsByClassName('card');
@@ -32,7 +33,7 @@ function createCards(employeeJSON) {
     html += `
     <div class="card">
       <div class="card-overlay" index="${index}"></div>
-      <img src="${employee.picture.large}" class="profile-pic">
+      <img src="${employee.picture.large}" class="profile-pic" alt="${employee.name.first} ${employee.name.last}">
       <div class="card-text">
         <h2 class="name">${employee.name.first} ${employee.name.last}</h2>
         <p class="email">${employee.email}</p>
@@ -47,29 +48,35 @@ function createCards(employeeJSON) {
 }
 
 // --- Creates Employee Detail Overlay --- //
-function createEmployeeDetail(employeeJSON) {
-  let employees = employeeJSON;
-  let html = '';
-
-  employees.forEach(function(employee) {
-    html += `
-    <div class="card">
-      <img src="${employee.picture.large}" class="profile-pic">
-      <div class="card-text">
+function createEmployeeDetail(property, index) {
+  let html = `
+    <i class="fas fa-chevron-right"></i>
+    <i class="fas fa-chevron-left"></i>
+    <div class="overlay-card">
+      <i class="fas fa-times"></i>
+      <div class="overlay-top">
+        <img src="${employee.picture.large}" class ="overlay-profile-image" alt="${employee.name.first} ${employee.name.last}">
         <h2 class="name">${employee.name.first} ${employee.name.last}</h2>
         <p class="email">${employee.email}</p>
         <p class="city">${employee.location.city}</p>
       </div>
+      <div class="overlay-bottom">
+        <p class="phone">(555) 555-5555</p>
+        <p class="birthday">01/01/1993</p>
+      </div>
     </div>
     `;
-  });
-  cardsContainer.innerHTML = html;
+  return html;
+  };
+  //overlay.innerHTML = html;
 }
 
 // Event Handlers
 cardsContainer.addEventListener('click', (e) => {
   let indexOf = e.target.getAttribute('index');
   console.log(indexOf);
+  //unhide the Overlay
+  //use createEmployeeDetail to create a detail card based on the index of the selected card
 })
 
 // Get Copyright Year
