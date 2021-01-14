@@ -48,7 +48,7 @@ function createCards(employeeJSON) {
 }
 
 // --- Creates Employee Detail Overlay --- //
-function createEmployeeDetail(property, index) {
+function createEmployeeDetail(employee) {
   let html = `
     <i class="fas fa-chevron-right"></i>
     <i class="fas fa-chevron-left"></i>
@@ -67,15 +67,17 @@ function createEmployeeDetail(property, index) {
     </div>
     `;
   return html;
-  };
+};
   //overlay.innerHTML = html;
-}
 
 // Event Handlers
 cardsContainer.addEventListener('click', (e) => {
   let indexOf = e.target.getAttribute('index');
-  console.log(indexOf);
-  //unhide the Overlay
+  let employees = fetchURL(randomURL);
+  //let employee = employees.filter(employees => employees === indexOf);
+  console.log(employees);
+  // overlay.style.display = 'flex';
+  // overlay.innerHTML = createEmployeeDetail(employee);
   //use createEmployeeDetail to create a detail card based on the index of the selected card
 })
 
