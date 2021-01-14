@@ -1,6 +1,8 @@
 const cardsContainer = document.querySelector('.cards-container');
-let employees = [];
 const randomURL = 'https://randomuser.me/api/?results=12';
+const cards = document.getElementsByClassName('card');
+
+let index = 0;
 
 // Functions
 function fetchURL(url) {
@@ -8,11 +10,10 @@ function fetchURL(url) {
     .then(checkStatus)
     .then (res => res.json())
     .then (resJSON => resJSON.results)
-    .then (createCards)
 }
 
-fetchURL(randomURL);
-
+fetchURL(randomURL)
+  .then (createCards);
 
 function checkStatus(response){
   if(response.ok){
@@ -22,8 +23,32 @@ function checkStatus(response){
   }
 }
 
+// --- Creates Employee Cards --- //
 function createCards(employeeJSON) {
-  employees = employeeJSON;
+  let employees = employeeJSON;
+  let html = '';
+
+  employees.forEach(function(employee) {
+    html += `
+    <div class="card">
+      <div class="card-overlay" index="${index}"></div>
+      <img src="${employee.picture.large}" class="profile-pic">
+      <div class="card-text">
+        <h2 class="name">${employee.name.first} ${employee.name.last}</h2>
+        <p class="email">${employee.email}</p>
+        <p class="city">${employee.location.city}</p>
+      </div>
+    </div>
+
+    `;
+    index += 1;
+  });
+  cardsContainer.innerHTML = html;
+}
+
+// --- Creates Employee Detail Overlay --- //
+function createEmployeeDetail(employeeJSON) {
+  let employees = employeeJSON;
   let html = '';
 
   employees.forEach(function(employee) {
@@ -41,7 +66,11 @@ function createCards(employeeJSON) {
   cardsContainer.innerHTML = html;
 }
 
-
+// Event Handlers
+cardsContainer.addEventListener('click', (e) => {
+  let indexOf = e.target.getAttribute('index');
+  console.log(indexOf);
+})
 
 // Get Copyright Year
 var today = new Date();

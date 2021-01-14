@@ -1,0 +1,84 @@
+@import '../utilities/mixins';
+@import '../utilities/variables';
+@import '../utilities/keyframes';
+
+.overlay {
+  position: fixed;
+  display: none;
+  align-items: center;
+  text-align: center;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.3);
+  top: 0px;
+  right: 0px;
+
+}
+
+.overlay-card {
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  padding: $body-space;
+  background: $white;
+  border: 1px solid $border-color;
+  border-radius: 3px;
+  width: 290px;
+  p {
+    font-size: 16px;
+    color: $secondary-font-color;
+    line-height: 32px;
+  }
+  h2 {
+    font-size: 26px;
+  }
+  @include tablet {
+    width: 310px;
+  }
+}
+
+.fa-times {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  height: 12px;
+
+}
+
+.fa-chevron-right,
+.fa-chevron-left,
+.fa-times {
+  color: $black;
+  cursor: pointer;
+}
+
+.fa-chevron-right,
+.fa-chevron-left {
+  height: 24px;
+  position:fixed;
+  z-index: 1000;
+}
+
+.fa-chevron-right {
+  top: 50%;
+  right: 30px;
+}
+
+.fa-chevron-left {
+  top: 50%;
+  left: 30px;
+}
+
+.overlay-top {
+  border-bottom: 1px solid $border-color;
+  padding-bottom: $body-space;
+}
+
+.overlay-bottom {
+  padding-top: $body-space;
+}
+
+.overlay-profile-image {
+  border-radius: 50%;
+  margin-bottom: $body-space;
+}
