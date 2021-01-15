@@ -12,12 +12,22 @@
   </head>
     <body>
       <div class="overlay">
-
+        <i class="fas fa-chevron-right"></i>
+        <i class="fas fa-chevron-left"></i>
+        <div class="overlay-card">
+          <i class="fas fa-times" id="close"></i>
+          <div class="card-content">
+          </div>
+        </div>
       </div>
       <div class="content">
-        <header>
+        <header id="header">
           <div class="container">
             <h1>Awesome Startup Employee Directory</h1>
+          </div>
+          <div class="container search">
+            <input type="text" name="search" id="search" placeholder="Search Employees...">
+            <i class="fas fa-search"></i>
           </div>
         </header>
         <main>
