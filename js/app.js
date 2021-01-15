@@ -41,7 +41,7 @@ function createCards(employeeJSON) {
   employees.forEach(function(employee) {
     employeesArray.push(employee);
     html += `
-    <div class="card">
+    <div class="card" id="${employee.name.first}-${employee.name.last}">
       <div class="card-overlay" index="${index}"></div>
       <img src="${employee.picture.large}" class="profile-pic" alt="${employee.name.first} ${employee.name.last}">
       <div class="card-text">
@@ -95,6 +95,25 @@ function showSearch() {
     searchBar.style.display = 'block';
     searchBar.style.width = '100%';
     searchIcon.style.display = 'none';
+  }
+}
+
+// --- Search Filter
+function getUserSearch() {
+// captures the user's search query and stores it in a normalized variable
+  let searchInput = document.getElementById('search').value;
+  let searchNormalized = searchInput.toLowerCase();
+
+//captures the name and stores it in a normalized variable
+  for (i = 0; i < cards.length; i++) {
+    let employeeName = cards[i].getAttribute('id');
+    let nameNormalized = employeeName.toLowerCase();
+//checks if user's search query is in the card ID and hides the card if it does not
+    if (nameNormalized.includes(searchNormalized)) {
+      cards[i].style.display = 'flex';
+    } else {
+      cards[i].style.display = 'none';
+    }
   }
 }
 
