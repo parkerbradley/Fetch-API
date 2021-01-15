@@ -19,7 +19,7 @@ function fetchURL(url) {
   return fetch(url)
     .then(checkStatus)
     .then (res => res.json())
-    .then (resJSON => resJSON.results)
+    .then (resJSON => resJSON.results);
 }
 
 fetchURL(randomURL)
@@ -78,11 +78,11 @@ function createEmployeeDetail(employee) {
     <div class="overlay-bottom">
       <p class="phone">${employee.phone}</p>
       <p class="address">${streetNumber + ' ' + streetName + ', ' + state + ' ' + zip}</p>
-      <p class="date">${month + '/' + day + '/' + year}</p>
+      <p class="date">Birthday: ${month + '/' + day + '/' + year}</p>
     </div>
     `;
   return html;
-};
+}
 
 // --- Display search on tablet & mobile
 function showSearch() {
