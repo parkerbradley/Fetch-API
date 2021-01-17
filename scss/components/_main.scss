@@ -10,7 +10,7 @@
   border: 1px solid $border-color;
   border-radius: 3px;
   padding: 15px;
-  //margin-right: $body-space;
+  margin-right: $body-space;
   cursor: pointer;
   p {
     font-size: 12px;
@@ -19,7 +19,7 @@
   h2 {
     font-size: 20px;
   }
-  @include tablet {
+  @include lg-phone {
     margin-right: 0;
   }
 }
